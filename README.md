@@ -5,6 +5,10 @@ package minigoredis
     import "minigoredis"
 ````
 
+# DEPENDENCIES
+* https://github.com/go-redis/redis
+* https://github.com/alicebob/miniredis
+
 # INSTALLATION
 
 ```` bash
