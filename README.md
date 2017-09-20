@@ -30,11 +30,11 @@ func TestGetPriorTimestampSuccess(t *testing.T) {
 
 # TYPES
 
-```` go
+```` godoc
 type Minigoredis struct {
     Miniredis *miniredis.Miniredis
 }
-    Minigoredis -- struct which wraps a miniredis instance
+    Minigoredis -- struct which wraps a miniredis instance
 
 func Run() (*Minigoredis, error)
     Run -- starts a miniredis server and serves it wrapped in Gominiredis
