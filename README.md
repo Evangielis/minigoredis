@@ -5,6 +5,29 @@ package minigoredis
     import "minigoredis"
 ````
 
+# INSTALLATION
+
+```` bash
+go get github.com/Evangielis/minigoredis
+````
+
+# USAGE
+In the example below, the function starts up a miniredis server, stores a key then tests a function which retrieves a key from the cache.
+
+```` go
+func TestGetPriorTimestampSuccess(t *testing.T) {
+	key, val := "foo", "bar"
+	cache, _ := minigoredis.Run()   // Here's where the server is started up
+    defer cache.Close()                 // Close it to avoid memory leaks
+	cache.Set(key, val, 0)          // Setting a key on the cache
+	time := getPriorTimestamp(key, cache)
+	if time != val {
+		t.Fatal("Timestamp retrieved was not equal to cached value")
+		t.Fail()
+	}
+}
+````
+
 # TYPES
 
 ```` go
