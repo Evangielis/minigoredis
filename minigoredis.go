@@ -20,18 +20,12 @@ func Run() (*Minigoredis, error) {
 // Get -- Retrieves a value from miniredis wrapped in a go-redis StringCmd
 func (g *Minigoredis) Get(key string) *redis.StringCmd {
 	val, err := g.Miniredis.Get(key)
-	if err != nil {
-		panic(err)
-	}
-	return redis.NewStringResult(val, nil)
+	return redis.NewStringResult(val, err)
 }
 
 // Set -- Sets a key, value pair in miniredis
 func (g *Minigoredis) Set(key string, val interface{}, _ time.Duration) *redis.StatusCmd {
 	err := g.Miniredis.Set(key, val.(string))
-	if err != nil {
-		panic(err)
-	}
 	return redis.NewStatusResult("OK", err)
 }
 
