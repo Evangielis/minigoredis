@@ -27,8 +27,8 @@ func (g *Minigoredis) Get(key string) *redis.StringCmd {
 }
 
 // Set -- Sets a key, value pair in miniredis
-func (g *Minigoredis) Set(key string, val string, _ time.Duration) *redis.StatusCmd {
-	err := g.Miniredis.Set(key, val)
+func (g *Minigoredis) Set(key string, val interface{}, _ time.Duration) *redis.StatusCmd {
+	err := g.Miniredis.Set(key, val.(string))
 	if err != nil {
 		panic(err)
 	}
