@@ -2,7 +2,7 @@
 
 ```` go
 package minigoredis
-    import "minigoredis"
+    import "github.com/Evangielis/minigoredis"
 ````
 
 # DEPENDENCIES
@@ -49,6 +49,6 @@ func (g *Minigoredis) Close() error
 func (g *Minigoredis) Get(key string) *redis.StringCmd
     Get -- Retrieves a value from miniredis wrapped in a go-redis StringCmd
 
-func (g *Minigoredis) Set(key string, val string, _ time.Duration) *redis.StatusCmd
+func (g *Minigoredis) Set(key string, val interface{}, _ time.Duration) *redis.StatusCmd
     Set -- Sets a key, value pair in miniredis
 ````
